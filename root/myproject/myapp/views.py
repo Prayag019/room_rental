@@ -3,6 +3,7 @@ from .forms import Room_Details_Form,SignUpForm
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from .models import Room_Details
 from django.contrib.auth import login
+from django.db.models import Q
 
 # Create your views here.
 def Room_Form_View(request):
@@ -47,7 +48,19 @@ def Homepage(request):
     if request.user.is_authenticated:
       return render(request,'pages/home-page.html')
     else:
-       return redirect('login-form')      
+       return redirect('login-form')
+
+def Room_lists(request):
+    query=request.GET.get('search-query')
+    if query:
+       rooms=Room_Details.object.filter(Q(room_category__icontains=query) | Q(rent__exact=query) | Q(location__iconatins=query) | Q(city__icontains=query))
+
+    else:
+       rooms=Room_Details.objects.all()
+    return render(request,'pages/home-page.html',{'rooms':rooms})      
+
+
+
 
 
 
