@@ -20,6 +20,7 @@ class Room_Details(models.Model):
 
 class CustomUser(AbstractUser):
      contact_number=models.CharField(max_length=15,validators=[RegexValidator(r'^(\+977)?9[78]\d{8}$',message="Enter a valid phone number ")])
+     email_verified=models.BooleanField(default=False)
 
 
      

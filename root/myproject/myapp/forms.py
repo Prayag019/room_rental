@@ -2,6 +2,7 @@ from django import forms
 from .models import Room_Details,CustomUser
 
 
+
 class Room_Details_Form(forms.ModelForm):
 	class Meta:
 		model=Room_Details

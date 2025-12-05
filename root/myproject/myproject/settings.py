@@ -125,3 +125,5 @@ AUTH_USER_MODEL='myapp.CustomUser'
  
 MEDIA_URL='/media/'
 MEDIA_ROOT=BASE_DIR/'media'
+
+
