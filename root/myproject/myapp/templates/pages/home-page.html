@@ -8,7 +8,15 @@
 <body>
 
 
-	<h1>welcome </h1>
+	<div>
+		<form method="GET" action="{%url 'homepage' %}">
+			<input type="text" name="serach-query"  value="request.GET.get('serach-query')">
+			<button type="submit">search</button>
+
+			
+
+		</form>
+	</div>
 
 </body>
 </html>
