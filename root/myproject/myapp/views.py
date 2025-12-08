@@ -46,12 +46,13 @@ def Login_Form(request):
        form=AuthenticationForm()
     return render(request,'form/login_form.html',{'form':form}) 
 
+@login_required
 def Homepage(request):
     if request.user.is_authenticated:
       return render(request,'pages/home-page.html')
     else:
        return redirect('login-form')
-
+@login_required
 def Room_lists(request):
     query=request.GET.get('search-query')
     if query:
