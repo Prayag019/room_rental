@@ -14,7 +14,7 @@ class Room_Details(models.Model):
      city=models.CharField(max_length=50)
      location=models.CharField(max_length=100)
      image=models.ImageField(upload_to='room_images/',null=True,blank=True)
-     owner=models.ForeignKey('CustomUser',on_delete=models.CASCADE)
+     owner=models.ForeignKey('CustomUser',on_delete=models.CASCADE,null=True,blank=True)
 
 
 
